@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Bootstrap for easy styling
 gem 'bootstrap', '~> 4.0.0.beta'
 
+gem 'rails-controller-testing'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -49,6 +51,8 @@ group :development, :test do
   gem 'faker'
   # Add Factory Bot
   gem 'factory_bot_rails'
+  # Clean that DB!
+  gem 'database_cleaner'
 end
 
 group :development do
