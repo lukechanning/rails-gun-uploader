@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    # Rooted my rails app
+    #root 'upload#index'
+
+    # Uploads Routes
+    get 'uploads' => 'uploads#index'
+    
 end
