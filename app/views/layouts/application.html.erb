@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>RailsGun -- Shoot it Out There, Yo!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <%= csrf_meta_tags %>
 </head>
 <body>
     
-		<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-			<a class="navbar-brand" href="#">TechStars Challenge</a>
-
-			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="/">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/founders">Founders</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/tags">Tags</a>
-					</li>
-				</ul>
-			</div>
+		<nav class="navbar justify-content-center navbar-dark bg-dark fixed-top">
+			<em class="text-white">Made by <a href="https://twitter.com/LukePatrick" target="_blank">Luke Patrick <i class="fa fa-github-alt" aria-hidden="true"></i></a></em>
 		</nav>
 
 		<div class="container">
-        <%= yield %>
+			<p id="notice"><%= notice %></p>
+			<!--begin card block-->
+			<div class="card uploads__card">
+			  <div class="card-header text-center text-white">
+			    <img class="card-img-top" src="/logo.png" alt="Card image cap">
+			    <hr>
+			    Throw something in the RailsGun and shoot it right up into <%= link_to 'the S3 sky', 'https://aws.amazon.com/s3/' %>, pardner!
+			  </div>
+			  <%= yield %>
+			</div>
+			<!--end card block-->
 		</div><!-- /.container -->
-
 
 </body>
 </html>
