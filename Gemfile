@@ -31,6 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 # Use Bootstrap for easy styling
 gem 'bootstrap', '~> 4.0.0.beta'
+# Use AWS
+gem 'aws-sdk', '~> 3'
 
 gem 'rails-controller-testing'
 
