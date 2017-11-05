@@ -1,0 +1,16 @@
+<div class="card-body text-center">
+  <h4 class="card-title">Add to the Stack</h4>
+</div>
+<div class="card-body">
+  <%= form_tag uploads_path, enctype: 'multipart/form-data', id: "uploads__card--form", class: "uploads__card--form" do %>
+    <div class="field">
+      <%= label_tag :file_name, 'Name the File' %><br>
+      <%= text_field_tag :file_name %>
+    </div>
+  	<%= file_field_tag :file, name: 'uploads__card-form-file', id: "uploads__card-form-file"  %>
+  	<%= submit_tag 'Punch It, Chewie', id: "uploads__card-form-submit" %>
+  <% end %>
+</div>
+<div class="card-body text-center">
+  <%= link_to 'View Bucket', uploads_path, class: "btn btn-primary" %>
+</div>

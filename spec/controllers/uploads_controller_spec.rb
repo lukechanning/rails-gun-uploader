@@ -6,7 +6,7 @@ RSpec.describe UploadsController, type: :controller do
     describe 'GET /uploads' do
         
         it 'should pass to uploads@index method' do
-            should route(:get, '/uploads').to(action: 'index')
+            should route(:get, '/').to(action: 'index')
         end
         
     end
