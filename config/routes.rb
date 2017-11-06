@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     root 'uploads#index'
     ### Uploads Routes ###
     get 'uploads' => 'uploads#index'        # Basic GETter
-    get 'uploads/edit' => 'uploads#edit'    # Route to Form Adder
+    get 'uploads/new' => 'uploads#new'    # Route to Form Adder
     post 'uploads' => 'uploads#create'      # CREATE Route
     delete 'uploads' => 'uploads#destroy'   # DELETE Route
 end
