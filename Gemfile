@@ -55,6 +55,8 @@ group :development, :test do
   gem 'factory_bot_rails'
   # Clean that DB!
   gem 'database_cleaner'
+  # .env Support in non-Prod
+  gem 'dotenv-rails'
 end
 
 group :development do
