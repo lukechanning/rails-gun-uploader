@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AmazonS3Service do
+RSpec.describe AmazonService do
     
     describe '.post to S3_BUCKET' do
         file = {
@@ -9,7 +9,7 @@ RSpec.describe AmazonS3Service do
         }
         
         it 'is uploaded to S3' do
-            obj = AmazonS3Service.new(file).punch
+            obj = AmazonService.new(file).punch
             expect(obj).to include(:file_type,:file_name,:file_url,:file_size)
         end
     end

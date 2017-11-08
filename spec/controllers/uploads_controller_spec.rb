@@ -26,7 +26,7 @@ RSpec.describe UploadsController, type: :controller do
                 expect {
                     post :create, params: FactoryBot.attributes_for(:upload)
                 }.to change {Upload.all.count}.by(1)
-                should redirect_to(uploads_url)
+                expect(flash[:success]).to be_present
             end
             
         end
@@ -35,7 +35,7 @@ RSpec.describe UploadsController, type: :controller do
             
             it "fails to create new upload" do
                 post :create, params: { file_type: 'jpg', file_name: 'Test Failure' }
-                should respond_with(400)
+                expect(flash[:warning]).to be_present
             end
             
         end
@@ -49,15 +49,15 @@ RSpec.describe UploadsController, type: :controller do
                 expect {
                     delete :destroy, params: { id: @gone }
                 }.to change {Upload.all.count}.by(-1)
-                should respond_with(302)
+                expect(flash[:success]).to be_present
             end
             
         end
         
         context 'with invalid id' do
-            it 'returns 404 error code' do
+            it 'cannot find matching upload' do
                 delete :destroy, params: { id: 45234689 }
-                should respond_with(404)
+                expect(flash[:warning]).to be_present
             end
         end
     end

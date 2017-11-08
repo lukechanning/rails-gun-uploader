@@ -1,4 +1,4 @@
-class AmazonS3Service
+class AmazonService
     
     def initialize(params)
         @name = params[:file_name]
