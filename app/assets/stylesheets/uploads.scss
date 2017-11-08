@@ -8,10 +8,20 @@
     position: relative;
     top: 5rem;
     margin: 0 auto;
+    .btn {
+        cursor: pointer;
+    }
     // card header image
     .card-img-top {
         width: 12rem;
         margin: -2.6rem auto auto auto;
         display: block;
+    }
+    // footer styling
+    &-footer {
+        background-color: $card-footer;
+        a {
+            color: $gray-900;
+        }
     }
 }

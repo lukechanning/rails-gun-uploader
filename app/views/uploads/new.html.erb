@@ -1,18 +1,20 @@
 <div class="card-body text-center">
   <h4 class="card-title">Add to the Stack</h4>
 </div>
-<div class="card-body">
+<div class="card-body text-center">
   <%= form_tag(uploads_path, multipart: true) do %>
-    <div class="field">
+    <div class="field form-group">
       <%= label_tag :file_name, 'Name the File' %><br>
-      <%= text_field_tag :file_name %>
+      <%= text_field_tag :file_name, "", class: "form-control" %>
     </div>
     <div class="field">
-      <%= file_field_tag :file, id: "uploads__card-form-file", accept: 'image/png,image/gif,image/jpeg,text/html' %>
+      <%= file_field_tag :file, class: "form-control-file" , id: "uploads__card-form-file", accept: 'image/png,image/gif,image/jpeg,text/html' %>
     </div>
-  	<%= submit_tag 'Punch It, Chewie', id: "uploads__card-form-submit" %>
+    <br />
+  	<%= submit_tag 'Punch It, Chewie', id: "uploads__card-form-submit", class: "btn btn-primary" %>
+  	<br />
   <% end %>
 </div>
-<div class="card-body text-center">
-  <%= link_to 'View Bucket', uploads_path, class: "btn btn-primary" %>
+<div class="card-footer uploads__card-footer text-left">
+  <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back to Bucket'.html_safe, uploads_path %>
 </div>
