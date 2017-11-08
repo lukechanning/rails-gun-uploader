@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.beta'
 # Use AWS
 gem 'aws-sdk', '~> 3'
-
+gem 'mimemagic'
 gem 'rails-controller-testing'
 
 # Use Capistrano for deployment
