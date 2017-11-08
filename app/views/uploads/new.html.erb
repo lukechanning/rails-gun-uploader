@@ -2,7 +2,7 @@
   <h4 class="card-title">Add to the Stack</h4>
 </div>
 <div class="card-body">
-  <%= form_tag('/uploads/send', multipart: true) do %>
+  <%= form_tag(uploads_path, multipart: true) do %>
     <div class="field">
       <%= label_tag :file_name, 'Name the File' %><br>
       <%= text_field_tag :file_name %>

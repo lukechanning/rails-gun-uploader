@@ -10,7 +10,7 @@ RSpec.describe AmazonS3Service do
         
         it 'is uploaded to S3' do
             obj = AmazonS3Service.new(file).punch
-            expect(obj).to be_a(Upload)  
+            expect(obj).to include(:file_type,:file_name,:file_url,:file_size)
         end
     end
     

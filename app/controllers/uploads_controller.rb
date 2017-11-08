@@ -7,7 +7,8 @@ class UploadsController < ApplicationController
 
   # POST /uploads
   def create
-    @upload = Upload.new(upload_params)
+    
+    @upload = has_file?(params)
     
     if @upload.save
       redirect_to uploads_url, notice: 'Upload was saved to disk.'
@@ -15,7 +16,6 @@ class UploadsController < ApplicationController
       render status: :bad_request, html: { notice: 'Upload was not saved to disk! Please try again.' }
     end
   end
-  
 
   # DELETE /uploads/1
   def destroy
@@ -35,6 +35,16 @@ class UploadsController < ApplicationController
     # Make sure we don't get hacked, check all the strong_param sheep for wolves
     def upload_params
       params.permit(:file_name,:file_url,:file_type,:file_size)
+    end
+    
+    # Test if we're passing in an unprocessed file
+    def has_file?(params)
+      if params.has_key?(:file)
+        object = AmazonS3Service.new(params).punch
+        return @upload = Upload.new(object)
+      else
+        return @upload = Upload.new(upload_params)
+      end
     end
 
 end

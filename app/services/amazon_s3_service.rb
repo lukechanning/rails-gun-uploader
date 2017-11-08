@@ -23,14 +23,12 @@ class AmazonS3Service
         end
         
         # Create an object for the upload
-        @upload = Upload.new(
+        return upload = {
           file_name: obj.key,
           file_url: obj.public_url,
           file_type: obj.content_type,
           file_size: obj.size
-        )
-        
-        @upload
+        }
         
     end
 end
