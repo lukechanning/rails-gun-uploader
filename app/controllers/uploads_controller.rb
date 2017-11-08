@@ -16,31 +16,6 @@ class UploadsController < ApplicationController
     end
   end
   
-  # POST /uploads/send
-  def punch
-    s3 = Aws::S3::Resource.new(region:'us-west-2')
-    obj = s3.bucket(ENV['S3_BUCKET']).object(params[:file_name])
-    
-    # Upload the file
-    obj.upload_file(
-      params[:file].path,
-      content_type: params[:file].content_type,
-      acl:'public-read'
-    )
-
-    # Create an object for the upload
-    @upload = Upload.new(
-      file_name: obj.key,
-      file_url: obj.public_url,
-      file_type: obj.content_type,
-      file_size: obj.size
-    )
-    
-    @upload.save
-    
-    redirect_to uploads_path, notice: 'Upload was saved to disk.'
-    
-  end
 
   # DELETE /uploads/1
   def destroy
