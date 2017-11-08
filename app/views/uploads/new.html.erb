@@ -2,12 +2,14 @@
   <h4 class="card-title">Add to the Stack</h4>
 </div>
 <div class="card-body">
-  <%= form_tag uploads_path, enctype: 'multipart/form-data', id: "uploads__card--form", class: "uploads__card--form" do %>
+  <%= form_tag('/uploads/send', multipart: true) do %>
     <div class="field">
       <%= label_tag :file_name, 'Name the File' %><br>
       <%= text_field_tag :file_name %>
     </div>
-  	<%= file_field_tag :file, name: 'uploads__card-form-file', id: "uploads__card-form-file"  %>
+    <div class="field">
+      <%= file_field_tag :file, id: "uploads__card-form-file", accept: 'image/png,image/gif,image/jpeg,text/html' %>
+    </div>
   	<%= submit_tag 'Punch It, Chewie', id: "uploads__card-form-submit" %>
   <% end %>
 </div>

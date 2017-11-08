@@ -1,11 +1,12 @@
 <div class="card-body text-center">
   <h4 class="card-title">Stuff in the Bucket</h4>
 </div>
+<p id="notice"><%= notice %></p>
 <ul class="list-group list-group-flush">
   <% @uploads.each do |upload| %>
     <li class="list-group-item">
       <%= upload.file_name %>
-      <%= link_to 'Destroy', upload, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <%= link_to 'Destroy', uploads_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
     </li>
   <% end %>
 </ul>

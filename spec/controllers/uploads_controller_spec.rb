@@ -26,7 +26,7 @@ RSpec.describe UploadsController, type: :controller do
                 expect {
                     post :create, params: FactoryBot.attributes_for(:upload)
                 }.to change {Upload.all.count}.by(1)
-                should respond_with(201)
+                should redirect_to(uploads_url)
             end
             
         end
@@ -49,7 +49,7 @@ RSpec.describe UploadsController, type: :controller do
                 expect {
                     delete :destroy, params: { id: @gone }
                 }.to change {Upload.all.count}.by(-1)
-                should respond_with(200) 
+                should respond_with(302)
             end
             
         end
@@ -57,7 +57,7 @@ RSpec.describe UploadsController, type: :controller do
         context 'with invalid id' do
             it 'returns 404 error code' do
                 delete :destroy, params: { id: 45234689 }
-                expect(response).to have_http_status(404)
+                should respond_with(404)
             end
         end
     end
