@@ -7,7 +7,7 @@ class AmazonService
     
     # punch the file through to S3
     def punch
-        s3 = Aws::S3::Resource.new(region:'us-west-2')
+        s3 = Aws::S3::Resource.new(region: ENV['S3_REGION'])
         obj = s3.bucket(ENV['S3_BUCKET']).object(@name)
         
         begin
