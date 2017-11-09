@@ -11,14 +11,16 @@
 <body>
     
 		<nav class="navbar justify-content-center navbar-dark bg-dark fixed-top">
-			<em class="text-white">Made by <a href="https://twitter.com/LukePatrick" target="_blank">Luke Patrick <i class="fa fa-github-alt" aria-hidden="true"></i></a></em>
+			<em class="text-white">Made by <a href="https://github.com/lukechanning" target="_blank">Luke Patrick <i class="fa fa-github-alt" aria-hidden="true"></i></a></em>
 		</nav>
 
 		<div class="container">
 			<!--begin card block-->
 			<div class="card uploads__card">
 			  <div class="card-header text-center text-white">
-			    <img class="card-img-top" src="/logo.png" alt="Card image cap">
+			  	<%= link_to uploads_path do %>
+			    	<img class="card-img-top" src="/logo.png" alt="Card image cap">
+					<% end %>
 			    <hr>
 			    Throw something in the RailsGun and shoot it right up into <%= link_to 'the S3 sky', 'https://aws.amazon.com/s3/' %>, pardner!
 			  </div>
