@@ -39,7 +39,7 @@ bundle install
 Edit your local database configuration within `config/database.yml` and prepare the database by performing migrations.
 
 ```
-rake db:setup
+rails db:setup
 ```
 
 You'll need to set a few environmental variables to use the preconfigured AWS service. The app also notably comes with Recaptcha through `/app/views/uploads/new.html.erb`. This requires a few API keys from Google, so be [sure to snag those](https://www.google.com/recaptcha) for your domain.
