@@ -11,6 +11,8 @@
       <%= file_field_tag :file, class: "form-control-file" , id: "uploads__card-form-file", accept: 'image/png,image/gif,image/jpeg,text/html,text/plain,audio/*,video/mp4,application/pdf' %>
     </div>
     <br />
+    <%= recaptcha_tags %>
+    <br />
   	<%= submit_tag 'Punch It, Chewie', id: "uploads__card-form-submit", class: "btn btn-primary" %>
   	<br />
   <% end %>

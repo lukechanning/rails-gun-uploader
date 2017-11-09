@@ -33,8 +33,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.beta'
 # Use AWS
 gem 'aws-sdk', '~> 3'
+# Allow MIME detection in PORO
 gem 'mimemagic'
-gem 'rails-controller-testing'
+# Recaptcha support
+gem 'recaptcha', require: 'recaptcha/rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -57,6 +59,8 @@ group :development, :test do
   gem 'database_cleaner'
   # .env Support in non-Prod
   gem 'dotenv-rails'
+  # Missing rails controller testing in 5.1.X
+  gem 'rails-controller-testing'
 end
 
 group :development do
