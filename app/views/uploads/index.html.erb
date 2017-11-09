@@ -4,14 +4,28 @@
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
-<ul class="list-group list-group-flush">
+<table class="table uploads__card-table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Size</th>
+      <th scope="col">Type</th>
+      <th scope="col">Link</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
   <% @uploads.each do |upload| %>
-    <li class="list-group-item">
-      <%= upload.file_name %>
-      <%= link_to 'Destroy', upload_delete_url(upload), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-    </li>
+   <tbody>
+      <tr>
+        <td><%= upload.file_name %></td>
+        <td><%= number_to_human_size(upload.file_size) %></td>
+        <td><%= upload.file_type %></td>
+        <td><%= link_to "Visit", upload.file_url, target: "_blank", class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', upload_delete_url(upload), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr>
+    </tbody>
   <% end %>
-</ul>
-<div class="card-body text-center">
-  <%= link_to 'Add New File', uploads_new_path, class: "btn btn-primary" %>
+</table>
+<div class="card-footer uploads__card-footer text-center">
+  <%= link_to 'Add New File', uploads_new_path, class: "btn btn-success" %>
 </div>

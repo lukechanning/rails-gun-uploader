@@ -7,7 +7,7 @@
     max-width: 42em;
     position: relative;
     top: 5rem;
-    margin: 0 auto;
+    margin: 0 auto 5rem auto;
     .btn {
         cursor: pointer;
     }
@@ -22,6 +22,9 @@
         background-color: $card-footer;
         a {
             color: $gray-900;
+        }
+        .btn {
+            color: $white;
         }
     }
 }
