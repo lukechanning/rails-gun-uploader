@@ -2,7 +2,7 @@
 
 A super simple upload engine with Amazon S3 integration out of the box. Highly modular and test driven to demonstrate TDD principles. This also makes it super easy to add additional upload integrations. 
 
-Feel free to use the app as a launchpad for your own projects! Fork to add additional integrations with services like Box, Google Cloud Storage, etc.
+Feel free to use the app as a launchpad for your own projects! Fork to add additional integrations through Services, eg. Box, Google Cloud Storage, etc.
 
 ### [View a Live Demo of RailsGun](https://railsgun.herokuapp.com)
 
@@ -56,7 +56,6 @@ S3_REGION = us-west-2
 
 RECAPTCHA_SITE_KEY = ANOTHERAPIKEYFROMGOOGLE
 RECAPTCHA_SECRET_KEY = BESURETOADDANOTHERONEHERE
-
 ```
 
 Finally, crank up the RailsGun by starting the Puma server. 

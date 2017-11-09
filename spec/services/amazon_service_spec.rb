@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe AmazonService do
     
-    describe '.post to S3_BUCKET' do
+    describe '.punch to S3_BUCKET' do
         file = {
             file_name: 'S3 Spec Test',
             file: File.new(Rails.root + 'public/logo.png')

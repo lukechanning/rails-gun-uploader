@@ -9,9 +9,15 @@ class UploadsController < ApplicationController
   # POST /uploads
   def create
     
+    # test for recaptcha success
+    if !verify_recaptcha
+      flash.delete(:recaptcha_error)
+      return redirect_to uploads_url, flash: { :warning => 'Are you a robot? We have our concerns' }
+    end
+    
     @upload = has_file?(params)
     
-    if verify_recaptcha(model: @upload) && @upload.save
+    if @upload.save
       redirect_to uploads_url, flash: { :success => 'Upload was saved to disk.' }
     else
       redirect_to uploads_url, flash: { :warning => 'Upload was not saved to disk! Please try again.' }
