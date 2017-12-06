@@ -1,5 +1,5 @@
 class UploadsController < ApplicationController
-  before_action :set_upload, only: [:destroy]
+  before_action :set_upload, only: [:destroy, :update]
 
   #GET /uploads
   def index
@@ -24,6 +24,11 @@ class UploadsController < ApplicationController
     end
   end
 
+  # UPDATE /uploads/1
+  def update
+    
+  end
+
   # DELETE /uploads/1
   def destroy
     if @upload.destroy
@@ -33,6 +38,7 @@ class UploadsController < ApplicationController
     end
   end
 
+
   private
 
     # Make sure we don't get hacked, check all the strong_param sheep for wolves
@@ -40,7 +46,7 @@ class UploadsController < ApplicationController
       params.permit(:file_name,:file_url,:file_type,:file_size)
     end
     
-    # Use callback to prep for :destroy ( :show? )
+    # Use callback to prep for :destroy
     def set_upload
       @upload = Upload.find(params[:id])
       rescue
