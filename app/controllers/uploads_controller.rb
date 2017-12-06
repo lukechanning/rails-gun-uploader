@@ -26,7 +26,11 @@ class UploadsController < ApplicationController
 
   # UPDATE /uploads/1
   def update
-    
+    if @upload.update(upload_params)
+      redirect_to uploads_url, flash: { :success => 'Upload was updated successfully.' }
+    else
+      redirect_to uploads_url, flash: { :success => 'Item update failed! Try again?' }
+    end
   end
 
   # DELETE /uploads/1
