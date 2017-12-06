@@ -68,13 +68,13 @@ From your locally running instance of the application, you should now be able to
 
 ## Running the tests
 
-Automated tests have been created using RSpec, Capybara and Selenium. All tests are contained within the `spec` folder at the root directory. 
+Automated tests have been created using RSpec, Capybara, VCR and Selenium. All tests are contained within the `spec` folder at the root directory. 
 
 Tests for RailsGun are broken into smaller unit tests, as well as one larger integration test for the uploader itself. These tests are:
 
 ### End to end with uploader_spec.rb
 
-We're using `/spec/features/uploads/uploader_spec.rb` to test the uploaders potential, from the view down to the S3 service and Uploads controller. The test will create a temporary upload, provide a name and a file from the `Public` directory, and validate that a new `Upload` was succesfully created. 
+We're using `/spec/features/uploads/uploader_spec.rb` to test the uploaders potential, from the view down to the S3 service and Uploads controller. The test will create a temporary upload, provide a name and a file from the `Public` directory, and validate that a new `Upload` was successfully created. 
 
 ```
 # run integration test
@@ -94,7 +94,7 @@ bundle exec rspec --format documentation
 
 #### A note concerning S3 Uploads
 
-All S3 uploads are validated and live. A bucket will also not duplicate items by default, but will simply update them. Because we are not using an upload library like [Paperclip](https://github.com/thoughtbot/paperclip) or [Carrierwave](https://github.com/carrierwaveuploader/carrierwave), you will need to explore your own mock and stub options. 
+All S3 uploads are live, authentic responses. However, VCR will record and mock responses after the first successful request. A bucket will also not duplicate items by default, but will update them. Because we are not using an upload library like [Paperclip](https://github.com/thoughtbot/paperclip) or [Carrierwave](https://github.com/carrierwaveuploader/carrierwave), you will need to explore additional mock and stub options on your own. 
 
 ## Built With
 
