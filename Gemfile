@@ -56,6 +56,9 @@ group :development, :test do
   gem 'dotenv-rails'
   # Missing rails controller testing in 5.1.X
   gem 'rails-controller-testing'
+  # Add VCR / Webmock for S3 performance
+  gem 'webmock', '3.1.1'
+  gem 'vcr', '4.0.0'
 end
 
 group :development do
