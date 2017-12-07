@@ -27,9 +27,19 @@ class UploadsController < ApplicationController
   # UPDATE /uploads/:id
   def update
     if @upload.update(upload_params)
-      redirect_to uploads_url, flash: { :success => 'Upload was updated successfully.' }
+      flash[:success] = 'Upload was updated successfully.'
+      flash.keep(:success)
+      respond_to do |format|
+        format.js { render js: "window.location = '#{root_path}';" }
+        format.html { redirect_to uploads_url }
+      end
     else
-      redirect_to uploads_url, flash: { :success => 'Item update failed! Try again?' }
+      flash[:warning] = 'Item update failed! Try again?'
+      flash.keep(:warning)
+      respond_to do |format|
+        format.js { render js: "window.location = '#{root_path}';" }
+        format.html { redirect_to uploads_url }
+      end
     end
   end
 
