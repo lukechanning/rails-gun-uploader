@@ -11,7 +11,7 @@ class Clicker {
             let id = $(e.target).data("id");
             
             $(e.target)
-                .html('<input data-id=' + id + ' class="uploads__card-table-file-input" type="text" value="' + content + '" />')
+                .html('<input data-id=' + id + ' class="uploads__card-table-file-input" id="course_title" type="text" value="' + content + '" />')
                 .addClass('prevent-click');
         });
         $(document).on('blur','.uploads__card-table-file-input', (e) => {
