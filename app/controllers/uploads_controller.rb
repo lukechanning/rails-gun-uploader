@@ -24,7 +24,7 @@ class UploadsController < ApplicationController
     end
   end
 
-  # UPDATE /uploads/1
+  # UPDATE /uploads/:id
   def update
     if @upload.update(upload_params)
       redirect_to uploads_url, flash: { :success => 'Upload was updated successfully.' }
@@ -33,7 +33,7 @@ class UploadsController < ApplicationController
     end
   end
 
-  # DELETE /uploads/1
+  # DELETE /uploads/:id
   def destroy
     if @upload.destroy
       redirect_to uploads_url, flash: { :success => 'Upload was removed from disk.' }

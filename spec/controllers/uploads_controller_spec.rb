@@ -38,14 +38,23 @@ RSpec.describe UploadsController, type: :controller do
         end
     end
     
-    describe 'POST #update' do
+    describe 'PATCH #update' do
         context "with valid parameters" do
             let(:upload) { FactoryBot.create(:upload) }
             let(:new) { Faker::Beer.name }
             
             it 'updates the object' do
-                put :update, params: { id: upload.id, file_name: new }
+                patch :update, params: { id: upload.id, file_name: new }
                 expect(new).to eq(Upload.find(upload.id).file_name)
+            end
+        end
+        
+        context "without valid parameters" do
+            let(:upload) { FactoryBot.create(:upload) }
+            
+            it 'it fails to update' do
+                patch :update, params: { id: upload.id, file_name: '' }
+                expect(upload.file_name).to eq(Upload.find(upload.id).file_name)
             end
         end
     end
