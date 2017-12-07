@@ -1,24 +1,26 @@
-$(document).ready(() => {
-    Clicker.editClicked();
-});
-
-
+// provide class for what we're trying to accomplish
 class Clicker {
 
     // on <td> clicked
-    static editClicked() {
+    editClicked() {
         $('.uploads__card-table-file-name').click((e) => {
+            
+            if($(e.target).hasClass('prevent-click')) { return e.preventDefault() }; // prevent default if already clicked
+            
             let content = $(e.target).html();
             let id = $(e.target).data("id");
-            $(e.target).html('<input data-id=' + id + ' class="uploads__card-table-file-input" type="text" value="' + content + '" />');
+            
+            $(e.target)
+                .html('<input data-id=' + id + ' class="uploads__card-table-file-input" type="text" value="' + content + '" />')
+                .addClass('prevent-click');
         });
         $(document).on('blur','.uploads__card-table-file-input', (e) => {
             this.saveOnBlur(e.target);
         });
     }
 
-    // on blur, send with AJAX
-    static saveOnBlur(element) {
+    // after blur, send with AJAX
+    saveOnBlur(element) {
 
         let id = $(element).data("id");
         let name = $(element).val();
@@ -35,3 +37,9 @@ class Clicker {
     }
 
 }
+
+// bombs away
+$(document).ready(() => {
+    const click = new Clicker();
+    return click.editClicked();
+});
