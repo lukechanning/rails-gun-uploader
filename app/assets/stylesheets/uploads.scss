@@ -1,7 +1,6 @@
 // Place all the styles related to the Uploads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 .uploads__card {
     width: auto;
     max-width: 42em;
@@ -10,14 +9,12 @@
     margin: 0 auto 5rem auto;
     .btn {
         cursor: pointer;
-    }
-    // card header image
+    } // card header image
     .card-img-top {
         width: 12rem;
         margin: -2.6rem auto auto auto;
         display: block;
-    }
-    // footer styling
+    } // footer styling
     &-footer {
         background-color: $card-footer;
         a {
@@ -26,5 +23,8 @@
         .btn {
             color: $white;
         }
+    } // table file name input cursor
+    &-table-file-name {
+        cursor: pointer;
     }
 }
