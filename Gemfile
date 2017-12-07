@@ -22,6 +22,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Bootstrap for easy styling
 gem 'bootstrap', '~> 4.0.0.beta'
+# Add jQuery 
+gem 'jquery-rails', '4.3.1'
 # Use AWS
 gem 'aws-sdk', '~> 3'
 # Allow MIME detection in PORO
